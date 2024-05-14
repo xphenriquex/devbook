@@ -10,11 +10,9 @@ import (
 )
 
 var (
-	// StringConexaoBanco é a string de conexao com o MySQL
 	StringConexaoBanco = ""
-
-	// Port onde a API vai estar rodando
-	Porta = 0
+	Porta              = 0
+	SecretKey          []byte
 )
 
 func Carregar() {
@@ -36,4 +34,5 @@ func Carregar() {
 		os.Getenv("DB_NOME"),
 	)
 
+	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 }
